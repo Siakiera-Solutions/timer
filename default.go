@@ -15,7 +15,6 @@ type defaultT struct {
 
 	tick func(ctx context.Context) error
 
-	op  string
 	log logger.Logger
 
 	interval time.Duration
@@ -33,7 +32,6 @@ func Default(
 		ctx:    ctx,
 		cancel: cancel,
 		tick:   tick,
-		op:     op,
 		log: log.With(
 			"layer", "pkg",
 			"component", "timer.default",

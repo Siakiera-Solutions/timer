@@ -15,7 +15,6 @@ type fixed struct {
 
 	tick func(ctx context.Context) error
 
-	op  string
 	log logger.Logger
 
 	interval time.Duration
@@ -24,7 +23,6 @@ type fixed struct {
 
 func Fixed(
 	tick func(ctx context.Context) error,
-	op string,
 	log logger.Logger,
 	interval time.Duration,
 	base time.Time,
@@ -35,7 +33,6 @@ func Fixed(
 		ctx:    ctx,
 		cancel: cancel,
 		tick:   tick,
-		op:     op,
 		log: log.With(
 			"layer", "pkg",
 			"component", "timer.fixed",
